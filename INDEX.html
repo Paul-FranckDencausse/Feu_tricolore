@@ -1,203 +1,108 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Méta-données -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feu tricolore</title>
     <meta name="Feu tricolore" content="site très utile de feu tricolore">
+
+    <!-- Liens vers les feuilles de style -->
     <link rel="stylesheet" href="./CSS/stylesheet.css">
     <style>
-        
-        .route{
-            display: flex;
-            justify-content: space-around   ;
-        }
-        .feu{
-            display: flex;
-            flex-direction: column;
-        }
-        .feu2{
-            display: flex;
-            flex-direction: column;
-        }
-        .boite{
-            background-color: black;
-            height: 300px;
-            width: 150px;
-            margin: auto;
-            margin-top: 10vh;
-            border-radius: 5%;
-            z-index: 1;
-            
-        }
-        .boite2{
-            background-color: black;
-            height: 200px;
-            width: 200px;
-            margin-top: 10vh;
-            border-radius: 5%;
-            padding: 10px;
-        }
-        .poteau{
-            background-color: grey;
-            height: 600px;
-            width: 100px;
-            margin: auto;
-            border-radius: 5%;
-            
-        }
-        .poteau2{
-            background-color: grey;
-            height: 600px;
-            width: 100px;
-           align-self: center;
-            border-radius: 5%;
-            padding: 5%;
-        }
-        .rouge{
-            background-color: red;
-            height: 33%;
-            width: 66%;
-            border-radius: 50%;
-            margin: auto;
-           
-        }
-        .orange{
-            background-color: orange;
-            height: 33%;
-            width:66%;
-            border-radius: 50%;
-            margin: auto;
-        
-        }
-        .vert{
-            background-color: green;
-            height: 33%;
-            width: 66%;
-            border-radius: 50%;
-            margin: auto;
-        }
-        .bouton{
-            height: 150px;
-            width: 100px;
-            background-color: black;
-            border-radius: 5%;
-            margin: auto;
-            
-        }
-        .pietons{
-            background-color: yellow;
-            height: 100px;
-            text-align: center;
-            justify-content: center;
-            font-weight: bold;
-
-        }
-        .grosBoutonRouge{
-            background-color: red;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            margin: auto;
-        }
-        #b0{
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-            background-color: red;
-        }
-        
+        /* Styles CSS en ligne */
     </style>
 </head>
 <main>
     <body>
-  <div class="route">
+        <!-- Contenu principal -->
 
-    <div class="feu">
-        <div class="boite">
-           
-            <div class="rouge" id="f1"> </div>
-            
-            <div class="orange" id="f2"></div>
-            
-            <div class="vert" id="f3"></div>
-           
-            
-        </div>
-        <div class="poteau">
-        </div>
-    </div>
-   <div class="feu2">
-    <div class="boite2">
-    
-    </div>
-    <div class="poteau2">
-        <div class="bouton">
-            <div class="pietons">
-                <br>
-                <p>
-                    PIETONS APPUYEZ
-                    <br>
-                    ↓
-                </p>
+        <!-- Structure de la route -->
+        <div class="route">
+
+            <!-- Feu de signalisation 1 -->
+            <div class="feu">
+                <div class="boite">
+                    <!-- Lumières du feu -->
+                    <div class="rouge" id="f1"></div>
+                    <div class="orange" id="f2"></div>
+                    <div class="vert" id="f3"></div>
+                </div>
+                <div class="poteau"></div>
             </div>
-            <div class="grosBoutonRouge" >
-                    <button id="b0">
 
-                    </button>
-
+            <!-- Feu de signalisation 2 -->
+            <div class="feu2">
+                <div class="boite2"></div>
+                <div class="poteau2">
+                    <!-- Bouton pour les piétons -->
+                    <div class="bouton">
+                        <div class="pietons">
+                            <br>
+                            <p>
+                                PIETONS APPUYEZ
+                                <br>
+                                ↓
+                            </p>
+                        </div>
+                        <!-- Gros bouton rouge pour les piétons -->
+                        <div class="grosBoutonRouge">
+                            <button id="b0"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-    </div>
 
-   </div>
-  </div>
+        </div>
     <body>
         <head>
-        
-    
+            <!-- Contenu de l'en-tête -->
+        </head>
     </body>
 </main>
-
 <footer>
+    <!-- Scripts JavaScript -->
     <script>
+        // Récupération des éléments HTML
+        let f1 = document.getElementById("f1");
+        let f2 = document.getElementById("f2");
+        let f3 = document.getElementById("f3");
 
-let f1 = document.getElementById("f1");
-let f2 = document.getElementById("f2");
-let f3 = document.getElementById("f3");
+        // Fonction pour afficher la lumière verte
+        function showGreen() {
+            f1.style.visibility = "hidden";
+            f2.style.visibility = "hidden";
+            f3.style.visibility = "visible";
+            setTimeout(showOrange, 6000); // Transition vers le orange après 6 secondes
+        }
 
-function showGreen() {
-    f1.style.visibility = "hidden";
-    f2.style.visibility = "hidden";
-    f3.style.visibility = "visible";
-    setTimeout(showOrange, 6000);
-}
+        // Fonction pour afficher la lumière orange
+        function showOrange() {
+            f1.style.visibility = "hidden";
+            f2.style.visibility = "visible";
+            f3.style.visibility = "hidden";
+            setTimeout(showRed, 1000); // Transition vers le rouge après 1 seconde
+        }
 
-function showOrange() {
-    f1.style.visibility = "hidden";
-    f2.style.visibility = "visible";
-    f3.style.visibility = "hidden";
-    setTimeout(showRed, 1000);
-}
+        // Fonction pour afficher la lumière rouge
+        function showRed() {
+            f1.style.visibility = "visible";
+            f2.style.visibility = "hidden";
+            f3.style.visibility = "hidden";
+            setTimeout(showGreen, 6000); // Transition vers le vert après 6 secondes
+        }
 
-function showRed() {
-    f1.style.visibility = "visible";
-    f2.style.visibility = "hidden";
-    f3.style.visibility = "hidden";
-    setTimeout(showGreen, 6000);
-}
+        // Fonction principale pour démarrer la séquence
+        function myFunction() {
+            showGreen(); // Commencer par afficher la lumière verte
+        }
 
-function myFunction() {
-    showGreen();
-}
+        myFunction(); // Appel de la fonction principale
 
-myFunction();
-
-document.getElementById("b0").onclick = function () {
-    f2.style.visibility = "hidden";
-};
-
+        // Gestion de l'événement clic sur le bouton des piétons
+        document.getElementById("b0").onclick = function () {
+            f2.style.visibility = "hidden"; // Masquer la lumière orange
+        };
     </script>
 </footer>
-</html> 
+</html>
